@@ -1,40 +1,184 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile</title>
-    <style>
-        body {
-            font-family: Arial;
-        display: flex;
-        justify-content: center;
-        }
-        .text-box1 {
-            border: 3px solid black;
+	<meta charset='UTF-8'>
+	<title>Moving Highlight</title>
+
+	<link rel='stylesheet' href='css/style.css'>
+
+	<script src='//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'></script>
+	<script>
+		// DOM Ready
+		$(function() {
+
+			var originalBGplaypen = $("#playpen").css("background-color"),
+			    x, y, xy, bgWebKit, bgMoz,
+			    lightColor = "rgba(255,255,255,0.75)",
+			    gradientSize = 100;
+
+				// Basic Demo
+				$('#playpen').mousemove(function(e) {
+
+					x  = e.pageX - this.offsetLeft;
+					y  = e.pageY - this.offsetTop;
+					xy = x + " " + y;
+
+					bgWebKit = "-webkit-gradient(radial, " + xy + ", 0, " + xy + ", " + gradientSize + ", from(" + lightColor + "), to(rgba(255,255,255,0.0))), " + originalBGplaypen;
+					bgMoz    = "-moz-radial-gradient(" + x + "px " + y + "px 45deg, circle, " + lightColor + " 0%, " + originalBGplaypen + " " + gradientSize + "px)";
+
+					$(this)
+						.css({ background: bgWebKit })
+						.css({ background: bgMoz });
+
+				}).mouseleave(function() {
+					$(this).css({ background: originalBGplaypen });
+				});
+
+
+
+
+				var originalBG = $(".nav a").css("background-color");
+
+				$('.nav li:not(".active") a')
+				.mousemove(function(e) {
+
+					   x  = e.pageX - this.offsetLeft;
+					   y  = e.pageY - this.offsetTop;
+					   xy = x + " " + y;
+
+				       bgWebKit = "-webkit-gradient(radial, " + xy + ", 0, " + xy + ", 100, from(rgba(255,255,255,0.8)), to(rgba(255,255,255,0.0))), " + originalBG;
+					   bgMoz    = "-moz-radial-gradient(" + x + "px " + y + "px 45deg, circle, " + lightColor + " 0%, " + originalBG + " " + gradientSize + "px)";
+
+						$(this)
+							.css({ background: bgWebKit })
+							.css({ background: bgMoz });
+
+
+				}).mouseleave(function() {
+					$(this).css({ background: originalBG });
+				});
+
+		});
+	</script>
+</head>
+
+<body>
+
+<div id="demo-top-bar">
+
+  <div id="demo-bar-inside">
+
+    <h2 id="demo-bar-badge">
+      <a href="/">CSS-Tricks Example</a>
+    </h2>
+
+    <div id="demo-bar-buttons">
+          </div>
+
+  </div>
+
+</div>
+	<div id="page-wrap">
+
+		<h1>Highlight Follows Mouse</h1>
+
+		<p>Idea based on the tabs in <a href="http://www.google.com/chrome/">Google Chrome</a>.
+		Original code by <a href="http://doctype.tv/">Doctype</a> guys and altered by me. Works in Webkit or Mozilla browsers for the moment. </p>
+
+		<h2>Basic Idea</h2>
+
+		<div id="playpen">
+            <div class="text-box1" style="font-size: 1rem;">
+                <h1>Welcome to My Website</h1>
+                <p>Hello, I'm Toan Duy Nguyen.</p>
+                <p>Age: 18</p>
+                <p>Gender: Male</p>
+                <p>Date of birth: 08/05/2005</p>
+                <p>My major: Computer Science</p>
+                <p>My favourite: hardware, dh, lng and trl, music,...</p>
+                <p>My social media account: <a target="_blank" href="https://www.instagram.com/dytoan58/">Instagram</a></p>
+            </div>
+        </div>
+	</div>
+
+ <style type="text/css" style="display: none !important;">
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	body {
+		overflow-x: hidden;
+	}
+	#demo-top-bar {
+		text-align: left;
+		background: #222;
+		position: relative;
+		zoom: 1;
+		width: 100% !important;
+		z-index: 6000;
+		padding: 20px 0 20px;
+	}
+	#demo-bar-inside {
+		width: 960px;
+		margin: 0 auto;
+		position: relative;
+		overflow: hidden;
+	}
+	#demo-bar-buttons {
+		padding-top: 10px;
+		float: right;
+	}
+	#demo-bar-buttons a {
+		font-size: 12px;
+		margin-left: 20px;
+		color: white;
+		margin: 2px 0;
+		text-decoration: none;
+		font: 14px "Lucida Grande", Sans-Serif !important;
+	}
+	#demo-bar-buttons a:hover,
+	#demo-bar-buttons a:focus {
+		text-decoration: underline;
+	}
+	#demo-bar-badge {
+		display: inline-block;
+		width: 302px;
+		padding: 0 !important;
+		margin: 0 !important;
+		background-color: transparent !important;
+	}
+	#demo-bar-badge a {
+		display: block;
+		width: 100%;
+		height: 38px;
+		border-radius: 0;
+		bottom: auto;
+		margin: 0;
+		background: url(/images/examples-logo.png) no-repeat;
+		background-size: 100%;
+		overflow: hidden;
+		text-indent: -9999px;
+	}
+	#demo-bar-badge:before, #demo-bar-badge:after {
+		display: none !important;
+	}
+
+    .text-box1 {
+            border: 3px solid rgb(0, 0, 0);
             padding: 1rem;
             text-align: center;
             border-radius: 10px;  
-            width: fit-content;
+          
+        }
+        .text-box1 a {
+            color: black;
         }
         img {
-            width: 300px;
+            width: 200px;
         }
-    </style>
-</head>
-    
-<body>
-    <div class="text-box1" style="font-size: 1rem;">
-        <h1>Welcome to My Website</h1>
-        <p style="image-rendering: auto;"><img src="./Toan.jpg" alt="My face"> </p>
-        <p>Hello, I'm Toan Duy Nguyen.</p>
-        <p>Age: 18</p>
-        <p>Gender: Male</p>
-        <p>Date of birth: 08/05/2005</p>
-        <p>My major: Computer Science</p>
-        <p>My favourite: hardware, dh, lng and trl, music,...</p>
-        <p>My social media account: <a href="https://www.instagram.com/dytoan58/">Instagram</a></p>
-    </div>
-
+</style>
 </body>
+
 </html>
