@@ -28,6 +28,9 @@ h2 { font-size: 20px; margin: 50px 0 10px 0; }
 #playpen {
     background: black;
     text-align: center; 
+    width: 100vw;
+    height:100vh;
+    padding: 2rem;        
 }
 
 #tabs-example {
