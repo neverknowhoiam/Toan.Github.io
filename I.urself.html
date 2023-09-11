@@ -1,35 +1,40 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile</title>
     <style>
         body {
             font-family: Arial;
+        display: flex;
+        justify-content: center;
         }
-        .button{
-            width: 30px;
-            height: 60px;
-            position: fixed;
-            transform: scale(0.8);
+        .text-box1 {
+            border: 3px solid black;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 10px;  
+            width: fit-content;
         }
-        .text-box {
-            max-width:  fit-content;
-            max-height:  fit-content;
-            border: 2px solid #333;
-            padding: 20px;
-            text-align: left;
-            background-image: url('logo.webp')  ;
+        img {
+            width: 300px;
         }
     </style>
 </head>
+    
 <body>
-
-    <div class="text-box" class="button">
+    <div class="text-box1" style="font-size: 1rem;">
         <h1>Welcome to My Website</h1>
-
+        <p style="image-rendering: auto;"><img src="./Toan.jpg" alt="My face"> </p>
         <p>Hello, I'm Toan Duy Nguyen.</p>
         <p>Age: 18</p>
         <p>Gender: Male</p>
         <p>Date of birth: 08/05/2005</p>
+        <p>My major: Computer Science</p>
+        <p>My favourite: hardware, dh, lng and trl, music,...</p>
+        <p>My social media account: <a href="https://www.instagram.com/dytoan58/">Instagram</a></p>
     </div>
+
 </body>
 </html>
